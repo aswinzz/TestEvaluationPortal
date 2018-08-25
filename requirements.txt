@@ -1,0 +1,4 @@
+Django==1.11.15
+django-crispy-forms==1.7.2
+django-widget-tweaks==1.4.2
+pytz==2018.5
