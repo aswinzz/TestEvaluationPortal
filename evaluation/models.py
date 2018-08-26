@@ -14,7 +14,7 @@ class Course(models.Model):
         return "{} - {}".format(self.name, self.semester)
 
     def __unicode__(self):
-        return "{} - {}".format(self.namee, self.semester)
+        return "{} - {}".format(self.name, self.semester)
 
     def save(self, *args, **kwargs):
         self.semester = self.name[len(self.name)-4]

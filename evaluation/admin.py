@@ -1,6 +1,5 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 from django.contrib import admin
+from .models import Marks,Course
 
-# Register your models here.
+admin.site.register(Marks)
+admin.site.register(Course)

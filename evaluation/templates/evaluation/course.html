@@ -183,22 +183,23 @@
 
 	                        <div class="name">
 	                            <h3 class="title">Upload CSV</h3>
-                              <form class="form" method="POST" action="/evaluation/course">
+                              <form class="form" method="POST" enctype="multipart/form-data" action="/evaluation/course">
               									{% csrf_token %}
 															<div class="form-group form-file-upload">
-																<input type="file" id="inputFile2" multiple="">
+																<input type="file" name="file" id="file" multiple="">
 																<div class="input-group">
-																	<input type="text" readonly="" class="form-control" name="file" id="file" placeholder="Single File">
+																	<input type="text" readonly="" class="form-control"  placeholder="Single File">
 																	<span class="input-group-btn input-group-s">
 																		<!-- <button type="button" class="btn btn-just-icon btn-round btn-primary">
 																			<i class="material-icons">attach_file</i>
 																		</button> -->
 																	</span>
 																</div>
-                                <div class="footer text-center">
-              										<input type="submit" class="btn btn-primary btn-round" value="Upload">
-              									</div>
+
 															</div>
+                              <div class="footer text-center">
+                                <input type="submit" class="btn btn-primary btn-round" value="Upload">
+                              </div>
                             </form>
 														</div>
 	                    </div>
