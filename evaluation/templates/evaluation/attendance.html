@@ -182,10 +182,19 @@
         	           <div class="profile">
 
 	                        <div class="name">
-	                            <h3 class="title">Upload Courses</h3>
-                              <form class="form" method="POST" enctype="multipart/form-data" action="/evaluation/course">
+	                            <h3 class="title">Upload Attendance</h3>
+                              <form class="form" method="POST" enctype="multipart/form-data" action="/evaluation/attendance">
               									{% csrf_token %}<br>
+																<select class="selectpicker" data-style="form-control" id="course" name="course" title="Choose course" data-size="7">
+
+																	{% for item in course %}
+																		<option value="{{item.name}}">{{item.name}}</option>
+																	{% endfor %}
+																</select>
 															<div class="form-group form-file-upload">
+																<div class="col-lg-5 col-md-6 col-sm-3">
+
+																</div>
 																<input type="file" name="file" id="file" multiple="">
 																<div class="input-group">
 																	<input type="text" readonly="" class="form-control"  placeholder="CSV file">

@@ -20,6 +20,23 @@ class Course(models.Model):
         self.semester = self.name[len(self.name)-4]
         return super(Course, self).save(*args, **kwargs)
 
+class Attendance(models.Model):
+    user=models.ForeignKey(User,null=True,blank=True,on_delete=models.CASCADE)
+    course = models.ForeignKey(Course,null=True,blank=True,on_delete=models.CASCADE)
+    total_classes = models.IntegerField(default=0,null=True,blank=True)
+    attendance = models.IntegerField(default=0,null=True,blank=True)
+    percentage = models.IntegerField(default=0,null=True,blank=True)
+
+    def save(self, *args, **kwargs):
+        self.percentage = int((float(self.attendance)/float(self.total_classes))*100);
+        return super(Attendance, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return "{} - {} - {}".format(self.user.username, self.course,self.percentage)
+
+    def __unicode__(self):
+        return "{} - {} - {}".format(self.user.username, self.course,self.percentage)
+
 class Marks(models.Model):
     user=models.ForeignKey(User,null=True,blank=True,on_delete=models.CASCADE)
     course = models.ForeignKey(Course,null=True,blank=True,on_delete=models.CASCADE)
